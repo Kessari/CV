@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload CV - CV Analyzer</title>
+  <meta name="description" content="Upload your CV for AI-powered analysis and job compatibility evaluation">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <!-- 
+    ========================================
+    UPLOAD PAGE
+    ========================================
+    Purpose: Upload CV file
+    UX Requirements:
+    - Clear upload zone (drag & drop style)
+    - Clear explanation of what happens after upload
+    - Loading / processing visual feedback
+    - No clutter
+    ========================================
+  -->
+  
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <span>CV Analyzer</span>
+      </a>
+      
+      <div class="navbar__actions">
+        <a href="login.html" class="btn btn--ghost">Sign out</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container container-narrow">
+      
+      <!-- Stepper Navigation -->
+      <div class="stepper" style="margin-bottom: var(--space-10);">
+        <div class="stepper__item stepper__item--completed">
+          <div class="stepper__circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="stepper__label">Start</span>
+        </div>
+        <div class="stepper__line" style="background-color: var(--color-accent);"></div>
+        <div class="stepper__item stepper__item--active">
+          <div class="stepper__circle">2</div>
+          <span class="stepper__label">Upload</span>
+        </div>
+        <div class="stepper__line"></div>
+        <div class="stepper__item">
+          <div class="stepper__circle">3</div>
+          <span class="stepper__label">Verify</span>
+        </div>
+        <div class="stepper__line"></div>
+        <div class="stepper__item">
+          <div class="stepper__circle">4</div>
+          <span class="stepper__label">Analyze</span>
+        </div>
+        <div class="stepper__line"></div>
+        <div class="stepper__item">
+          <div class="stepper__circle">5</div>
+          <span class="stepper__label">Results</span>
+        </div>
+      </div>
+      
+      <!-- Page Header -->
+      <header class="page-header" style="margin-bottom: var(--space-8);">
+        <h1 class="page-header__title">Upload Your CV</h1>
+        <p class="page-header__subtitle">
+          Upload your resume and let our AI extract your professional information for analysis.
+        </p>
+      </header>
+      
+      <!-- Upload Card -->
+      <div class="card">
+        <div class="card__body">
+          
+          <!-- Upload Zone -->
+          <div 
+            id="uploadZone" 
+            class="upload-zone"
+            role="button"
+            tabindex="0"
+            aria-label="Upload your CV file"
+          >
+            <input 
+              type="file" 
+              id="fileInput" 
+              class="hidden" 
+              accept=".pdf,.doc,.docx"
+              aria-hidden="true"
+            >
+            
+            <div class="upload-zone__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            
+            <h3 class="upload-zone__title">Drag & drop your CV here</h3>
+            <p class="upload-zone__text">
+              or <strong style="color: var(--color-accent);">click to browse</strong> from your computer
+            </p>
+            <p class="upload-zone__text" style="margin-top: var(--space-4); font-size: var(--text-xs);">
+              Supported formats: PDF, DOC, DOCX (Max 10MB)
+            </p>
+          </div>
+          
+          <!-- File Preview (Hidden by default) -->
+          <div id="filePreview" class="hidden" style="margin-top: var(--space-6);">
+            <div style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); background-color: var(--color-bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+              <div style="width: 48px; height: 48px; background-color: var(--color-accent-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--color-accent);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <p id="fileName" class="font-medium text-primary" style="margin-bottom: var(--space-1);">filename.pdf</p>
+                <p id="fileSize" class="text-sm text-muted">2.4 MB</p>
+              </div>
+              <button id="removeFile" type="button" class="btn btn--ghost" aria-label="Remove file">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Loading State (Hidden by default) -->
+          <div id="uploadLoading" class="hidden" style="margin-top: var(--space-8); text-align: center;">
+            <div class="spinner" style="margin: 0 auto var(--space-4);"></div>
+            <p class="text-secondary">Analyzing your CV...</p>
+            <p class="text-sm text-muted" style="margin-top: var(--space-2);">This may take a few moments</p>
+          </div>
+          
+          <!-- Upload Info -->
+          <div id="uploadInfo" style="margin-top: var(--space-8);">
+            <div class="alert alert--info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <div>
+                <p class="font-medium" style="margin-bottom: var(--space-1);">What happens next?</p>
+                <p>Our AI will extract your skills, experience, and education from your CV. You'll have a chance to review and correct any information before proceeding.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Card Footer -->
+        <div class="card__footer" style="display: flex; justify-content: space-between; align-items: center;">
+          <a href="index.html" class="btn btn--ghost">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back
+          </a>
+          <button id="continueBtn" type="button" class="btn btn--primary" disabled>
+            Continue
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Privacy Note -->
+      <p class="text-center text-sm text-muted" style="margin-top: var(--space-6);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: var(--space-1);">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        Your CV is processed securely and never shared with third parties.
+      </p>
+      
+    </div>
+  </main>
+  
+  <!-- JavaScript -->
+  <script src="js/upload.js"></script>
+</body>
+</html>

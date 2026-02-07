@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify CV - CV Analyzer</title>
+  <meta name="description" content="Verify your extracted CV information and select your target job">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <!-- 
+    ========================================
+    CV VERIFICATION PAGE
+    ========================================
+    Purpose: Human validation step - prevents AI errors
+    UX Requirements:
+    - Display extracted CV data (name, skills, experience, etc.)
+    - User can confirm or edit correctness
+    - Below: job selection section
+    - User selects the job they want to apply for
+    ========================================
+  -->
+  
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <span>CV Analyzer</span>
+      </a>
+      
+      <div class="navbar__actions">
+        <a href="login.html" class="btn btn--ghost">Sign out</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Stepper Navigation -->
+      <div class="stepper" style="margin-bottom: var(--space-10);">
+        <div class="stepper__item stepper__item--completed">
+          <div class="stepper__circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="stepper__label">Start</span>
+        </div>
+        <div class="stepper__line" style="background-color: var(--color-accent);"></div>
+        <div class="stepper__item stepper__item--completed">
+          <div class="stepper__circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="stepper__label">Upload</span>
+        </div>
+        <div class="stepper__line" style="background-color: var(--color-accent);"></div>
+        <div class="stepper__item stepper__item--active">
+          <div class="stepper__circle">3</div>
+          <span class="stepper__label">Verify</span>
+        </div>
+        <div class="stepper__line"></div>
+        <div class="stepper__item">
+          <div class="stepper__circle">4</div>
+          <span class="stepper__label">Analyze</span>
+        </div>
+        <div class="stepper__line"></div>
+        <div class="stepper__item">
+          <div class="stepper__circle">5</div>
+          <span class="stepper__label">Results</span>
+        </div>
+      </div>
+      
+      <!-- Page Header -->
+      <header class="page-header" style="margin-bottom: var(--space-8);">
+        <h1 class="page-header__title">Verify Your Information</h1>
+        <p class="page-header__subtitle">
+          Please review the information extracted from your CV and make any necessary corrections.
+        </p>
+      </header>
+      
+      <div class="grid" style="grid-template-columns: 1fr; gap: var(--space-6);">
+        
+        <!-- Left Column: CV Data -->
+        <div>
+          
+          <!-- Personal Information Card -->
+          <div class="card" style="margin-bottom: var(--space-6);">
+            <div class="card__header" style="display: flex; align-items: center; justify-content: space-between;">
+              <h2 class="text-xl font-semibold">Personal Information</h2>
+              <span class="badge badge--primary">Extracted by AI</span>
+            </div>
+            <div class="card__body">
+              <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-5);">
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" id="fullName" class="form-input" value="John Anderson">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" class="form-input" value="john.anderson@email.com">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="tel" id="phone" class="form-input" value="+1 (555) 123-4567">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" id="location" class="form-input" value="San Francisco, CA">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Skills Card -->
+          <div class="card" style="margin-bottom: var(--space-6);">
+            <div class="card__header" style="display: flex; align-items: center; justify-content: space-between;">
+              <h2 class="text-xl font-semibold">Skills</h2>
+              <button type="button" class="btn btn--sm btn--secondary" id="addSkillBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add Skill
+              </button>
+            </div>
+            <div class="card__body">
+              <div id="skillsList" style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+                <span class="badge badge--primary" style="display: flex; align-items: center; gap: var(--space-2);">
+                  JavaScript
+                  <button type="button" class="skill-remove" style="background: none; border: none; cursor: pointer; padding: 0; display: flex;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </span>
+                <span class="badge badge--primary" style="display: flex; align-items: center; gap: var(--space-2);">
+                  React
+                  <button type="button" class="skill-remove" style="background: none; border: none; cursor: pointer; padding: 0; display: flex;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </span>
+                <span class="badge badge--primary" style="display: flex; align-items: center; gap: var(--space-2);">
+                  Node.js
+                  <button type="button" class="skill-remove" style="background: none; border: none; cursor: pointer; padding: 0; display: flex;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </span>
+                <span class="badge badge--primary" style="display: flex; align-items: center; gap: var(--space-2);">
+                  Python
+                  <button type="button" class="skill-remove" style="background: none; border: none; cursor: pointer; padding: 0; display: flex;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </span>
+                <span class="badge badge--primary" style="display: flex; align-items: center; gap: var(--space-2);">
+                  SQL
+                  <button type="button" class="skill-remove" style="background: none; border: none; cursor: pointer; padding: 0; display: flex;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </span>
+                <span class="badge badge--primary" style="display: flex; align-items: center; gap: var(--space-2);">
+                  AWS
+                  <button type="button" class="skill-remove" style="background: none; border: none; cursor: pointer; padding: 0; display: flex;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Experience Card -->
+          <div class="card" style="margin-bottom: var(--space-6);">
+            <div class="card__header">
+              <h2 class="text-xl font-semibold">Work Experience</h2>
+            </div>
+            <div class="card__body">
+              <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                <div style="padding: var(--space-4); background-color: var(--color-bg-secondary); border-radius: var(--radius-lg);">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-2);">
+                    <div>
+                      <h4 class="font-semibold">Senior Software Engineer</h4>
+                      <p class="text-sm text-secondary">TechCorp Inc.</p>
+                    </div>
+                    <span class="text-sm text-muted">2021 - Present</span>
+                  </div>
+                  <p class="text-sm text-secondary">Leading frontend development team, implementing React-based solutions.</p>
+                </div>
+                <div style="padding: var(--space-4); background-color: var(--color-bg-secondary); border-radius: var(--radius-lg);">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-2);">
+                    <div>
+                      <h4 class="font-semibold">Software Developer</h4>
+                      <p class="text-sm text-secondary">StartupXYZ</p>
+                    </div>
+                    <span class="text-sm text-muted">2018 - 2021</span>
+                  </div>
+                  <p class="text-sm text-secondary">Full-stack development using Node.js and React.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Education Card -->
+          <div class="card">
+            <div class="card__header">
+              <h2 class="text-xl font-semibold">Education</h2>
+            </div>
+            <div class="card__body">
+              <div style="padding: var(--space-4); background-color: var(--color-bg-secondary); border-radius: var(--radius-lg);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                  <div>
+                    <h4 class="font-semibold">Bachelor of Science in Computer Science</h4>
+                    <p class="text-sm text-secondary">Stanford University</p>
+                  </div>
+                  <span class="text-sm text-muted">2014 - 2018</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      <!-- Job Selection Section -->
+      <div class="card" style="margin-top: var(--space-8);">
+        <div class="card__header">
+          <h2 class="text-xl font-semibold">Select Target Job</h2>
+        </div>
+        <div class="card__body">
+          <p class="text-secondary" style="margin-bottom: var(--space-5);">
+            Choose the job position you want to apply for. We'll analyze your CV compatibility against this role.
+          </p>
+          
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="jobSelect" class="form-label">Job Position</label>
+            <select id="jobSelect" class="form-input" style="cursor: pointer;">
+              <option value="">-- Select a job position --</option>
+              <option value="frontend-dev">Frontend Developer</option>
+              <option value="backend-dev">Backend Developer</option>
+              <option value="fullstack-dev">Full Stack Developer</option>
+              <option value="devops-engineer">DevOps Engineer</option>
+              <option value="data-scientist">Data Scientist</option>
+              <option value="product-manager">Product Manager</option>
+              <option value="ui-ux-designer">UI/UX Designer</option>
+              <option value="software-architect">Software Architect</option>
+            </select>
+          </div>
+          
+          <!-- Job Details (Hidden by default, shown when job selected) -->
+          <div id="jobDetails" class="hidden" style="margin-top: var(--space-5); padding: var(--space-4); background-color: var(--color-bg-secondary); border-radius: var(--radius-lg);">
+            <h4 class="font-semibold mb-3">Job Requirements</h4>
+            <ul id="jobRequirements" style="list-style: disc; padding-left: var(--space-5); color: var(--color-text-secondary);">
+              <li>3+ years of experience with React</li>
+              <li>Strong JavaScript/TypeScript skills</li>
+              <li>Experience with state management (Redux, MobX)</li>
+              <li>Knowledge of CSS preprocessors</li>
+              <li>Understanding of REST APIs</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Card Footer -->
+        <div class="card__footer" style="display: flex; justify-content: space-between; align-items: center;">
+          <a href="upload.html" class="btn btn--ghost">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back
+          </a>
+          <a href="calculate.html" class="btn btn--primary">
+            Continue to Analysis
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+  
+  <!-- JavaScript -->
+  <script src="js/verify.js"></script>
+</body>
+</html>

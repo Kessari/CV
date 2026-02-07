@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - CV Analyzer</title>
+  <meta name="description" content="Create your CV Analyzer account - Professional CV analysis and job compatibility evaluation">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <!-- 
+    ========================================
+    SIGN UP PAGE
+    ========================================
+    Purpose: Account creation with minimal friction
+    UX Goal: Clear, simple registration process
+    ========================================
+  -->
+  
+  <main class="auth-page">
+    <div class="auth-card fade-in">
+      <!-- Logo Section -->
+      <div class="auth-card__logo">
+        <div class="navbar__logo" style="justify-content: center;">
+          <div class="navbar__logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <span>CV Analyzer</span>
+        </div>
+      </div>
+      
+      <!-- Header -->
+      <h1 class="auth-card__title">Create your account</h1>
+      <p class="auth-card__subtitle">Start analyzing your CV and find your perfect job match</p>
+      
+      <!-- Sign Up Form -->
+      <form id="signupForm" class="auth-form">
+        <!-- Full Name Field -->
+        <div class="form-group">
+          <label for="fullName" class="form-label">Full name</label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            class="form-input" 
+            placeholder="John Doe"
+            required
+            autocomplete="name"
+          >
+        </div>
+        
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email" class="form-label">Email address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          >
+        </div>
+        
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-input" 
+            placeholder="Create a strong password"
+            required
+            autocomplete="new-password"
+            minlength="8"
+          >
+          <p class="form-hint">Must be at least 8 characters long</p>
+        </div>
+        
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+          <label for="confirmPassword" class="form-label">Confirm password</label>
+          <input 
+            type="password" 
+            id="confirmPassword" 
+            name="confirmPassword" 
+            class="form-input" 
+            placeholder="Confirm your password"
+            required
+            autocomplete="new-password"
+          >
+        </div>
+        
+        <!-- Terms Checkbox -->
+        <div class="form-group">
+          <label style="display: flex; align-items: flex-start; gap: var(--space-2); cursor: pointer;">
+            <input type="checkbox" name="terms" required style="width: 16px; height: 16px; accent-color: var(--color-accent); margin-top: 2px;">
+            <span class="text-sm text-secondary">
+              I agree to the <a href="#" style="color: var(--color-accent);">Terms of Service</a> and <a href="#" style="color: var(--color-accent);">Privacy Policy</a>
+            </span>
+          </label>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn--primary btn--lg w-full" style="margin-top: var(--space-6);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+            <line x1="20" y1="8" x2="20" y2="14"></line>
+            <line x1="23" y1="11" x2="17" y2="11"></line>
+          </svg>
+          Create account
+        </button>
+      </form>
+      
+      <!-- Footer -->
+      <div class="auth-card__footer">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+    </div>
+  </main>
+  
+  <!-- JavaScript -->
+  <script src="js/auth.js"></script>
+</body>
+</html>

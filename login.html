@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - CV Analyzer</title>
+  <meta name="description" content="Login to CV Analyzer - Professional CV analysis and job compatibility evaluation">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <!-- 
+    ========================================
+    LOGIN PAGE
+    ========================================
+    Purpose: Simple access point with minimal distractions
+    UX Goal: Quick, frictionless authentication
+    ========================================
+  -->
+  
+  <main class="auth-page">
+    <div class="auth-card fade-in">
+      <!-- Logo Section -->
+      <div class="auth-card__logo">
+        <div class="navbar__logo" style="justify-content: center;">
+          <div class="navbar__logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <span>CV Analyzer</span>
+        </div>
+      </div>
+      
+      <!-- Header -->
+      <h1 class="auth-card__title">Welcome back</h1>
+      <p class="auth-card__subtitle">Sign in to analyze your CV and find your dream job</p>
+      
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email" class="form-label">Email address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          >
+        </div>
+        
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-input" 
+            placeholder="Enter your password"
+            required
+            autocomplete="current-password"
+          >
+        </div>
+        
+        <!-- Remember Me & Forgot Password -->
+        <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+          <label style="display: flex; align-items: center; gap: var(--space-2); cursor: pointer;">
+            <input type="checkbox" name="remember" style="width: 16px; height: 16px; accent-color: var(--color-accent);">
+            <span class="text-sm text-secondary">Remember me</span>
+          </label>
+          <a href="#" class="text-sm" style="color: var(--color-accent); font-weight: var(--font-medium);">Forgot password?</a>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn--primary btn--lg w-full" style="margin-top: var(--space-6);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          Sign in
+        </button>
+      </form>
+      
+      <!-- Footer -->
+      <div class="auth-card__footer">
+        Don't have an account? <a href="signup.html">Sign up</a>
+      </div>
+    </div>
+  </main>
+  
+  <!-- JavaScript -->
+  <script src="js/auth.js"></script>
+</body>
+</html>

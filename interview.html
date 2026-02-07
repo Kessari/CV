@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Questions - CV Analyzer</title>
+  <meta name="description" content="AI-generated interview questions tailored to your profile and target job">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <!-- 
+    ========================================
+    AI INTERVIEW QUESTIONS PAGE
+    ========================================
+    Purpose: Interview preparation
+    UX Requirements:
+    - List of generated interview questions
+    - Clicking a question reveals the answer (accordion)
+    - At bottom: Slider or input for "Ask AI your own question"
+    - Keep the UI calm and focused (no overload)
+    ========================================
+  -->
+  
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <span>CV Analyzer</span>
+      </a>
+      
+      <div class="navbar__actions">
+        <a href="results.html" class="btn btn--ghost">Back to Results</a>
+        <a href="login.html" class="btn btn--ghost">Sign out</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container container-narrow">
+      
+      <!-- Page Header -->
+      <header class="page-header" style="margin-bottom: var(--space-8);">
+        <div style="display: inline-flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-5); background-color: var(--color-accent-light); border-radius: var(--radius-full); margin-bottom: var(--space-4);">
+          <div style="width: 24px; height: 24px; background-color: var(--color-accent); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: white;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-accent">AI-Powered Interview Prep</span>
+        </div>
+        <h1 class="page-header__title">Interview Questions</h1>
+        <p class="page-header__subtitle">
+          Practice with AI-generated questions tailored to your profile and the Frontend Developer position.
+        </p>
+      </header>
+      
+      <!-- Info Card -->
+      <div class="alert alert--info" style="margin-bottom: var(--space-8);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <div>
+          <p class="font-medium" style="margin-bottom: var(--space-1);">How to use these questions</p>
+          <p>Click on any question to reveal a suggested answer. Use these as a starting point to prepare your own responses based on your experience.</p>
+        </div>
+      </div>
+      
+      <!-- Questions Categories -->
+      <div style="margin-bottom: var(--space-6);">
+        <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+          <button class="btn btn--sm btn--primary">All Questions</button>
+          <button class="btn btn--sm btn--secondary">Technical</button>
+          <button class="btn btn--sm btn--secondary">Behavioral</button>
+          <button class="btn btn--sm btn--secondary">Experience</button>
+        </div>
+      </div>
+      
+      <!-- Questions List -->
+      <div class="questions-list" style="margin-bottom: var(--space-10);">
+        
+        <!-- Question 1 -->
+        <div class="question-item">
+          <button class="question-item__header" onclick="toggleQuestion(this)">
+            <span class="question-item__text">Can you explain the difference between React's useState and useEffect hooks?</span>
+            <svg class="question-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="question-item__content">
+            <div class="question-item__answer">
+              <p><strong>Suggested Answer:</strong></p>
+              <p style="margin-top: var(--space-2);">useState is a hook that allows you to add React state to function components. It returns a pair: the current state value and a function that lets you update it.</p>
+              <p style="margin-top: var(--space-2);">useEffect is a hook that lets you perform side effects in function components. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, combined into a single API.</p>
+              <p style="margin-top: var(--space-2);"><strong>Tip:</strong> Mention specific examples from your projects where you've used both hooks effectively.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Question 2 -->
+        <div class="question-item">
+          <button class="question-item__header" onclick="toggleQuestion(this)">
+            <span class="question-item__text">Describe a challenging project you worked on. What was your role and how did you overcome obstacles?</span>
+            <svg class="question-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="question-item__content">
+            <div class="question-item__answer">
+              <p><strong>Suggested Answer Structure:</strong></p>
+              <p style="margin-top: var(--space-2);">Use the STAR method: Situation, Task, Action, Result.</p>
+              <p style="margin-top: var(--space-2);">1. <strong>Situation:</strong> Briefly describe the project context and team structure.<br>
+              2. <strong>Task:</strong> Explain your specific responsibilities and the challenges faced.<br>
+              3. <strong>Action:</strong> Detail the steps you took to address the challenges.<br>
+              4. <strong>Result:</strong> Share the outcome, including any measurable improvements.</p>
+              <p style="margin-top: var(--space-2);"><strong>Tip:</strong> Focus on your individual contributions while acknowledging team collaboration.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Question 3 -->
+        <div class="question-item">
+          <button class="question-item__header" onclick="toggleQuestion(this)">
+            <span class="question-item__text">How do you handle state management in large React applications?</span>
+            <svg class="question-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="question-item__content">
+            <div class="question-item__answer">
+              <p><strong>Suggested Answer:</strong></p>
+              <p style="margin-top: var(--space-2);">For large applications, I consider several factors when choosing state management:</p>
+              <p style="margin-top: var(--space-2);">• <strong>Redux:</strong> Best for complex state logic, time-travel debugging, and when multiple components need the same data.<br>
+              • <strong>Context API:</strong> Good for global data that doesn't change frequently (theme, user auth).<br>
+              • <strong>Zustand/Recoil:</strong> Lighter alternatives for simpler state management needs.</p>
+              <p style="margin-top: var(--space-2);">I also follow principles like lifting state up only when necessary, using local state for component-specific data, and keeping the state as flat as possible.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Question 4 -->
+        <div class="question-item">
+          <button class="question-item__header" onclick="toggleQuestion(this)">
+            <span class="question-item__text">What is your experience with performance optimization in React?</span>
+            <svg class="question-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="question-item__content">
+            <div class="question-item__answer">
+              <p><strong>Suggested Answer:</strong></p>
+              <p style="margin-top: var(--space-2);">I've implemented several optimization techniques:</p>
+              <p style="margin-top: var(--space-2);">• <strong>React.memo:</strong> For preventing unnecessary re-renders of functional components.<br>
+              • <strong>useMemo and useCallback:</strong> To memoize expensive computations and callbacks.<br>
+              • <strong>Code splitting:</strong> Using React.lazy and Suspense for route-based splitting.<br>
+              • <strong>Virtualization:</strong> For long lists using react-window or react-virtualized.</p>
+              <p style="margin-top: var(--space-2);"><strong>Tip:</strong> Mention specific performance improvements you achieved (e.g., "reduced initial load time by 40%").</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Question 5 -->
+        <div class="question-item">
+          <button class="question-item__header" onclick="toggleQuestion(this)">
+            <span class="question-item__text">How do you stay updated with the latest frontend technologies and best practices?</span>
+            <svg class="question-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="question-item__content">
+            <div class="question-item__answer">
+              <p><strong>Suggested Answer:</strong></p>
+              <p style="margin-top: var(--space-2);">I use a combination of resources to stay current:</p>
+              <p style="margin-top: var(--space-2);">• <strong>Documentation:</strong> Regularly reading official docs (React, MDN, etc.)<br>
+              • <strong>Community:</strong> Following key developers on Twitter, subscribing to newsletters like JavaScript Weekly<br>
+              • <strong>Practice:</strong> Building side projects to experiment with new technologies<br>
+              • <strong>Conferences:</strong> Attending virtual conferences and local meetups</p>
+              <p style="margin-top: var(--space-2);"><strong>Tip:</strong> Mention specific recent technologies you've learned or are excited about.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Question 6 -->
+        <div class="question-item">
+          <button class="question-item__header" onclick="toggleQuestion(this)">
+            <span class="question-item__text">Tell me about a time you had to debug a complex issue. What was your approach?</span>
+            <svg class="question-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="question-item__content">
+            <div class="question-item__answer">
+              <p><strong>Suggested Answer Structure:</strong></p>
+              <p style="margin-top: var(--space-2);">1. <strong>Reproduce the issue:</strong> Ensure I can consistently reproduce the bug.<br>
+              2. <strong>Isolate the problem:</strong> Use binary search approach - comment out half the code to narrow down.<br>
+              3. <strong>Use debugging tools:</strong> Chrome DevTools, React DevTools, console.log strategically.<br>
+              4. <strong>Check recent changes:</strong> Git bisect or reviewing recent commits.<br>
+              5. <strong>Document and fix:</strong> Once found, document the root cause and implement the fix.</p>
+              <p style="margin-top: var(--space-2);"><strong>Tip:</strong> Share a specific example with the actual issue and how you resolved it.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- AI Chat Section -->
+      <div class="ai-chat">
+        <p class="ai-chat__label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: var(--space-1);">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Ask AI your own question
+        </p>
+        <div class="ai-chat__input-group">
+          <input 
+            type="text" 
+            class="ai-chat__input" 
+            placeholder="E.g., What should I ask about company culture?"
+            id="customQuestion"
+          >
+          <button class="btn btn--primary" onclick="askAI()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            Ask AI
+          </button>
+        </div>
+        
+        <!-- AI Response (Hidden by default) -->
+        <div id="aiResponse" class="hidden" style="margin-top: var(--space-4); padding: var(--space-4); background-color: var(--color-accent-light); border-radius: var(--radius-lg); border-left: 4px solid var(--color-accent);">
+          <div style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2);">
+            <div style="width: 24px; height: 24px; background-color: var(--color-accent); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: white;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <span class="font-medium text-accent">AI Response</span>
+          </div>
+          <p class="text-secondary" id="aiResponseText"></p>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div style="display: flex; justify-content: center; gap: var(--space-4); margin-top: var(--space-10);">
+        <a href="results.html" class="btn btn--ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Results
+        </a>
+        <a href="index.html" class="btn btn--secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Go to Home
+        </a>
+      </div>
+      
+    </div>
+  </main>
+  
+  <!-- JavaScript -->
+  <script>
+    // Toggle question accordion
+    function toggleQuestion(button) {
+      const item = button.parentElement;
+      item.classList.toggle('question-item--open');
+    }
+    
+    // Ask AI function
+    function askAI() {
+      const input = document.getElementById('customQuestion');
+      const responseDiv = document.getElementById('aiResponse');
+      const responseText = document.getElementById('aiResponseText');
+      
+      const question = input.value.trim();
+      if (!question) {
+        input.focus();
+        return;
+      }
+      
+      // Show loading state
+      responseDiv.classList.remove('hidden');
+      responseText.innerHTML = '<div class="spinner spinner--sm"></div> Thinking...';
+      
+      // Simulate AI response (in real app, this would be an API call)
+      setTimeout(() => {
+        const responses = [
+          "Great question! For company culture, ask: 'How does the team handle disagreements about technical decisions?' and 'Can you describe the onboarding process for new developers?'",
+          "That's a thoughtful question. Consider asking about: growth opportunities, mentorship programs, and how the company supports continuous learning.",
+          "Excellent! Ask about the team's development workflow, code review process, and how they balance technical debt with new features."
+        ];
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        responseText.textContent = randomResponse;
+      }, 1500);
+    }
+    
+    // Allow Enter key to submit
+    document.getElementById('customQuestion')?.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        askAI();
+      }
+    });
+  </script>
+</body>
+</html>
